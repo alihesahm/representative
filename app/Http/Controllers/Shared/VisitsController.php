@@ -12,7 +12,7 @@ class VisitsController extends Controller
     public function store(CreateVisitRequest $request)
     {
         $data = $request->validated();
-        Visit::create($data);
+        auth()->user()->visits()->create($data);
         return sendSuccessResponse();
     }
 }

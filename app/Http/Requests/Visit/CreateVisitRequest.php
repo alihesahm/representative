@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests\Visit;
 
+use App\Helpers\Traits\General\HasFailedValidationRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateVisitRequest extends FormRequest
 {
+    use HasFailedValidationRequest;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -27,7 +29,6 @@ class CreateVisitRequest extends FormRequest
             'next_action' => ['required','string','max:255'],
             'project_id' => ['required','integer','exists:projects,id'],
             'client_id' => ['required','integer','exists:clients,id'],
-            'broker_id' => ['required','integer','exists:brokers,id'],
         ];
     }
 }

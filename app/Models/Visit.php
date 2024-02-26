@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Visit extends Model
 {
@@ -17,4 +18,19 @@ class Visit extends Model
         'impression',
         'next_action',
     ];
+
+    public function project():BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function client():BelongsTo
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function broker():BelongsTo
+    {
+        return $this->belongsTo(Broker::class);
+    }
 }

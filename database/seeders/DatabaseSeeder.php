@@ -15,10 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         \App\Models\User::factory()->create([
+             'name' => 'Test User',
+             'email' => 'admin@admin.com',
+             'password' => 'password'
+         ]);
+         $this->call([
+             BrokerSeeder::class,
+         ]);
 
         Artisan::call('ide-helper:generate');
         Artisan::call('ide-helper:models -n');

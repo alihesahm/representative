@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Shared\ClientsController;
+use App\Http\Controllers\Shared\ProjectsController;
+use App\Http\Controllers\Shared\VisitsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +18,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:admin')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:admin')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::middleware('auth:broker')->get('/user1', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:broker')->group(function () {
+    Route::controller(ProjectsController::class)->prefix('projects')->group(function () {
+        Route::get('/list', 'list');
+        Route::post('/', 'store');
+    });
+
+    Route::controller(ClientsController::class)->prefix('clients')->group(function () {
+        Route::get('/list', 'list');
+        Route::post('/', 'store');
+    });
+
+    Route::controller(VisitsController::class)->prefix('visits')->group(function () {
+        Route::post('/', 'store');
+    });
 });
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);

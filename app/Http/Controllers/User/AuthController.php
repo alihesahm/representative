@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Models\Broker;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request):JsonResponse
     {
         $data = $request->validated();
         $user = Broker::query()->where('residency_number', $data['email'])->where('job_number', $data['password'])->first();

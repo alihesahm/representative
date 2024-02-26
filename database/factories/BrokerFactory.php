@@ -1,0 +1,28 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ */
+class BrokerFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->name(),
+            'residency_number' => $this->faker->numberBetween(1000, 9999),
+            'job_number' => $this->faker->numberBetween(1000, 9999),
+            'phone' => $this->faker->phoneNumber(),
+            'email' => $this->faker->email(),
+            'status' => $this->faker->randomElement(['active', 'inactive']),
+        ];
+    }
+}

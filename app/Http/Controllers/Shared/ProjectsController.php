@@ -14,7 +14,7 @@ class ProjectsController extends Controller
         $projects = Project::query()->select(['id', 'name'])->get();
         return sendSuccessResponse(data:$projects);
     }
-    public function start(CreateProjecteRequest $request)
+    public function store(CreateProjecteRequest $request)
     {
         $data = $request->validated();
         Project::create($data);

@@ -2,10 +2,12 @@
 
 namespace App\Http\Requests\Clients;
 
+use App\Helpers\Traits\General\HasFailedValidationRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateClientRequest extends FormRequest
 {
+    use HasFailedValidationRequest;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -23,9 +25,10 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name' => ['required','string','max:255'],
-            'location' => ['required','string','max:255'],
+            'latitude' => ['required','numeric','between:-90,90'],
+            'longitude' => ['required','numeric','between:-180,180'],
             'type' => ['required','string','max:255'],
-            'phase' => ['required','string','max:255'],
+            'phone' => ['required','string','max:255'],
             'status' => ['required','string','max:255'],
         ];
     }
