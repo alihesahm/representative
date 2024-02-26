@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('brokers', function (Blueprint $table) {
+        Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('residency_number')->nullable();
-            $table->string('job_number')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('status')->nullable();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('location');
+            $table->string('type');
+            $table->string('status');
+            $table->foreignId('broker_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('brokers');
+        Schema::dropIfExists('clients');
     }
 };
