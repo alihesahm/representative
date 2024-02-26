@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('contractor');
             $table->string('phase');
+            $table->string('neighborhood');
             $table->timestamps();
         });
     }
