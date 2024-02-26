@@ -43,3 +43,6 @@ Route::prefix('admin')->group(function () {
 Route::prefix('user')->group(function () {
     Route::post('/login', [\App\Http\Controllers\User\AuthController::class, 'login']);
 });
+Route::get('/test',function (){
+    return response()->json(['message' => 'Hello World']);
+});
