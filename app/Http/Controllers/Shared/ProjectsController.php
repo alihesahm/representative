@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shared;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Projects\CreateProjecteRequest;
+use App\Http\Resources\Project\ProjectResource;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ProjectsController extends Controller
     public function store(CreateProjecteRequest $request)
     {
         $data = $request->validated();
-        Project::create($data);
-        return sendSuccessResponse();
+        $project = Project::create($data);
+        return sendSuccessResponse('Project created successfully', data:ProjectResource::make($project));
     }
 }

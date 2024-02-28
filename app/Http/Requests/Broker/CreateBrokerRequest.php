@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Clients;
+namespace App\Http\Requests\Broker;
 
 use App\Helpers\Traits\General\HasFailedValidationRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateClientRequest extends FormRequest
+class CreateBrokerRequest extends FormRequest
 {
     use HasFailedValidationRequest;
     /**
@@ -25,12 +25,11 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name' => ['required','string','max:255'],
-            'latitude' => ['required','numeric','between:-90,90'],
-            'longitude' => ['required','numeric','between:-180,180'],
-            'type' => ['required','string','max:255'],
+            'residency_number' => ['required','string','max:255'],
+            'job_number' => ['required','string','max:255'],
             'phone' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255'],
             'status' => ['required','string','max:255'],
-            'neighborhood' => ['required','string','max:255'],
         ];
     }
 }

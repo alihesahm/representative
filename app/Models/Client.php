@@ -18,6 +18,7 @@ class Client extends Model
         'longitude',
         'type',
         'status',
+        'neighborhood',
     ];
 
     public function broker():BelongsTo
