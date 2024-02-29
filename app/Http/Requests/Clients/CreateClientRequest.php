@@ -28,7 +28,7 @@ class CreateClientRequest extends FormRequest
             'latitude' => ['required','numeric','between:-90,90'],
             'longitude' => ['required','numeric','between:-180,180'],
             'type' => ['required','string','max:255'],
-            'phone' => ['required','string','max:255'],
+            'phone' => ['required','string','max:255','unique:clients,phone'],
             'status' => ['required','string','max:255'],
             'neighborhood' => ['required','string','max:255'],
         ];
