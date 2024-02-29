@@ -24,7 +24,7 @@ class ClientSeeder extends Seeder
                 $clients[] = [
                     'id' => $data[0],
                     'name' => $data[1],
-                    'is_new' => true,
+                    'is_new' => false,
                 ];
             }else{
                 $is_first = false;

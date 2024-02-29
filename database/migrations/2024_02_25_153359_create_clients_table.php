@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('broker_id')->nullable()->constrained();
-            $table->boolean('is_new')->default(false);
+            $table->boolean('is_new')->default(true);
             $table->string('neighborhood')->nullable();
             $table->timestamps();
         });

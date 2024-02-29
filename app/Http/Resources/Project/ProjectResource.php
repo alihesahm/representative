@@ -22,6 +22,7 @@ class ProjectResource extends JsonResource
             'type' => $this->type,
             'contractor' => $this->contractor,
             'phase' => $this->phase,
+            'status'=>$this->status,
             'neighborhood' => $this->neighborhood,
         ];
     }

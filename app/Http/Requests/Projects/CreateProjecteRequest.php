@@ -30,6 +30,7 @@ class CreateProjecteRequest extends FormRequest
             'type' => ['required','string','max:255'],
             'contractor' => ['required','string','max:255'],
             'phase' => ['required','string','max:255'],
+            'status' => ['required','string','max:255'],
             'neighborhood' => ['required','string','max:255'],
         ];
     }

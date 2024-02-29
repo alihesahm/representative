@@ -16,6 +16,7 @@ class Project extends Model
         'type',
         'contractor',
         'phase',
+        'status',
         'neighborhood',
     ];
 
