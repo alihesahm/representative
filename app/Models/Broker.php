@@ -14,7 +14,11 @@ class Broker extends Authenticatable
 
     protected $fillable = [
         'residency_number',
-        'job_number'
+        'job_number',
+        'name',
+        'email',
+        'phone',
+        'status',
     ];
 
     public function clients(): HasMany

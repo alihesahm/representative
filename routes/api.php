@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:admin')->prefix('/admin')-> group(function () {
-    Route::controller(BrokerController::class)->prefix('brokers')->group(function () {
+    Route::controller(BrokerController::class)->prefix('/brokers')->group(function () {
         Route::post('/', 'store');
     });
 });
