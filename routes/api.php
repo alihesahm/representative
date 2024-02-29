@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BrokerController;
 use App\Http\Controllers\Shared\ClientsController;
 use App\Http\Controllers\Shared\ProjectsController;
 use App\Http\Controllers\Shared\VisitsController;
@@ -18,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:admin')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::middleware('auth:admin')->prefix('/admin')-> group(function () {
+    Route::controller(BrokerController::class)->prefix('brokers')->group(function () {
+        Route::post('/', 'store');
+    });
+});
 
 Route::middleware('auth:broker')->group(function () {
     Route::controller(ProjectsController::class)->prefix('projects')->group(function () {

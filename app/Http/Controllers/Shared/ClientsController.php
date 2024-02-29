@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Clients\CreateClientRequest;
 use App\Http\Resources\Client\ClientResource;
 use App\Models\Client;
-use phpDocumentor\Reflection\Types\This;
 
 
 class ClientsController extends Controller
