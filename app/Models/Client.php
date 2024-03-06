@@ -30,4 +30,9 @@ class Client extends Model
     {
         return $this->hasMany(Visit::class);
     }
+
+    public function locations():HasMany
+    {
+        return $this->hasMany(Location::class);
+    }
 }

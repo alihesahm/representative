@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
          ]);
          $this->call([
              BrokerSeeder::class,
-             ClientSeeder::class
+             ClientSeeder::class,
+             LocationSeeder::class
          ]);
 
         Artisan::call('ide-helper:generate');

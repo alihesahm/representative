@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('status')->nullable();
+            $table->string('job_title')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('manager_name')->nullable();
+            $table->string('branch')->nullable();
+            $table->string('department')->nullable();
             $table->timestamps();
         });
     }

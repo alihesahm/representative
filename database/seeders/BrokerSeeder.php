@@ -13,6 +13,31 @@ class BrokerSeeder extends Seeder
      */
     public function run(): void
     {
+        $file_path = storage_path('app/clientname.csv');
+
+        $open = fopen($file_path, "r");
+        $is_first = true;
+        $brokers = [];
+        while (($data = fgetcsv($open, 1000, ",")) !== FALSE)
+        {
+            if(!$is_first){
+                $brokers[] = [
+                    'name' => $data[1],
+                    'job_number' => $data[2],
+                    'job_title' => $data[3],
+                    'phone' => $data[4],
+                    'manager_name' => $data[5],
+                    'nationality' => $data[6],
+                    'branch' => $data[7],
+                    'department' => $data[8],
+                    'residency_number' => $data[9],
+                ];
+            }else{
+                $is_first = false;
+            }
+        }
+        fclose($open);
+        Broker::insert($brokers);
         Broker::factory()->create([
             'name' => 'Test Broker',
             'residency_number' => '0000',
@@ -21,6 +46,6 @@ class BrokerSeeder extends Seeder
             'email' => 'admin@admin.com',
             'status' => 'active',
         ]);
-        Broker::factory()->count(5)->create();
+
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BrokerController;
 use App\Http\Controllers\Shared\ClientsController;
+use App\Http\Controllers\Shared\LocationController;
 use App\Http\Controllers\Shared\ProjectsController;
 use App\Http\Controllers\Shared\VisitsController;
 use Illuminate\Http\Request;
@@ -39,6 +40,12 @@ Route::middleware('auth:broker')->group(function () {
     Route::controller(VisitsController::class)->prefix('visits')->group(function () {
         Route::post('/', 'store');
     });
+
+    Route::controller(LocationController::class)->prefix('locations')->group(function () {
+        Route::post('/{client}', 'store');
+        Route::get('/{client}', 'index');
+    });
+
 });
 Route::prefix('admin')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
