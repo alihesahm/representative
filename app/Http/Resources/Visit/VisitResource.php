@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources\Visit;
 
+use App\Http\Resources\Client\ClientResource;
+use App\Http\Resources\Location\LocationResource;
+use App\Http\Resources\Project\ProjectResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,6 +22,9 @@ class VisitResource extends JsonResource
             'purpose' => $this->purpose,
             'impression' => $this->impression,
             'next_action' => $this->next_action,
+            'project' => ProjectResource::make($this->project),
+            'client' => ClientResource::make($this->client),
+            'location' => LocationResource::make($this->location),
         ];
     }
 }

@@ -17,6 +17,7 @@ class Visit extends Model
         'purpose',
         'impression',
         'next_action',
+        'location_id'
     ];
 
     public function project():BelongsTo
@@ -32,5 +33,10 @@ class Visit extends Model
     public function broker():BelongsTo
     {
         return $this->belongsTo(Broker::class);
+    }
+
+    public function location():BelongsTo
+    {
+        return $this->belongsTo(Location::class);
     }
 }
