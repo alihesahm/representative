@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BrokerController;
 use App\Http\Controllers\Shared\ClientsController;
 use App\Http\Controllers\Shared\LocationController;
 use App\Http\Controllers\Shared\ProjectsController;
+use App\Http\Controllers\Shared\ReportesController;
 use App\Http\Controllers\Shared\VisitsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,10 @@ Route::middleware('auth:broker')->group(function () {
     Route::controller(LocationController::class)->prefix('locations')->group(function () {
         Route::post('/{client}', 'store');
         Route::get('/{client}', 'index');
+    });
+
+    Route::controller(ReportesController::class)->prefix('reportes')->group(function () {
+        Route::get('/visits','visitsRepote');
     });
 
 });

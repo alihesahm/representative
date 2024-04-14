@@ -21,9 +21,9 @@ class ClientResource extends JsonResource
             'phone' => $this->phone,
             'status' => $this->status,
             'location' => [
-                'id' => $this->location->id,
-                'neighborhood' => $this->location->neighborhood,
-                'link' => $this->location->link,
+                'id' => $this->location?->id,
+                'neighborhood' => $this->location?->neighborhood,
+                'link' => $this->location?->link,
             ]
         ];
     }

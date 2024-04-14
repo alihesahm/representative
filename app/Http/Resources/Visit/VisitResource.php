@@ -22,9 +22,12 @@ class VisitResource extends JsonResource
             'purpose' => $this->purpose,
             'impression' => $this->impression,
             'next_action' => $this->next_action,
+            'neighborhood' => $this->neighborhood,
+            'link' => $this->link,
             'project' => ProjectResource::make($this->project),
             'client' => ClientResource::make($this->client),
-            'location' => LocationResource::make($this->location),
+            'project_location' => LocationResource::make($this->projectLocation),
+            'clinet_location' => LocationResource::make($this->clientLocation),
         ];
     }
 }

@@ -17,7 +17,8 @@ class Visit extends Model
         'purpose',
         'impression',
         'next_action',
-        'location_id'
+        'client_location_id',
+        'project_location_id',
     ];
 
     public function project():BelongsTo
