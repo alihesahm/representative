@@ -16,10 +16,13 @@ return new class extends Migration
             $table->foreignId('broker_id')->nullable()->constrained();
             $table->foreignId('client_id')->nullable()->constrained();
             $table->foreignId('project_id')->nullable()->constrained();
-            $table->foreignId('location_id')->nullable()->constrained();
+            $table->foreignId('client_location_id')->nullable()->constrained('clients');
+            $table->foreignId('project_location_id')->nullable()->constrained('projects');
             $table->string('purpose');
             $table->string('impression');
             $table->string('next_action');
+            $table->string('neighborhood');
+            $table->string('link');
             $table->timestamps();
         });
     }

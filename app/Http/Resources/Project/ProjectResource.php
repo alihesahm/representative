@@ -17,13 +17,15 @@ class ProjectResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
             'type' => $this->type,
             'contractor' => $this->contractor,
             'phase' => $this->phase,
             'status'=>$this->status,
-            'neighborhood' => $this->neighborhood,
+            'location' => [
+                'id' => $this->location->id,
+                'neighborhood' => $this->location->neighborhood,
+                'link' => $this->location->link,
+            ]
         ];
     }
 }

@@ -35,8 +35,13 @@ class Visit extends Model
         return $this->belongsTo(Broker::class);
     }
 
-    public function location():BelongsTo
+    public function projectLocation():BelongsTo
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Location::class,'project_location_id');
+    }
+
+    public function clientLocation():BelongsTo
+    {
+        return $this->belongsTo(Location::class,'client_location_id');
     }
 }

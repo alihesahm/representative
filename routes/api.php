@@ -29,7 +29,10 @@ Route::middleware('auth:admin')->prefix('/admin')-> group(function () {
 Route::middleware('auth:broker')->group(function () {
     Route::controller(ProjectsController::class)->prefix('projects')->group(function () {
         Route::get('/list', 'list');
+        Route::post('/{project}/locations', 'projectLocation');
+        Route::get('/{project}/locations', 'index');
         Route::post('/', 'store');
+
     });
 
     Route::controller(ClientsController::class)->prefix('clients')->group(function () {
@@ -52,6 +55,8 @@ Route::prefix('admin')->group(function () {
 });
 Route::prefix('user')->group(function () {
     Route::post('/login', [\App\Http\Controllers\User\AuthController::class, 'login']);
+    Route::post('/logout', [\App\Http\Controllers\User\AuthController::class, 'logout']);
+
 });
 Route::get('/test',function (){
     return response()->json(['message' => 'Hello World']);

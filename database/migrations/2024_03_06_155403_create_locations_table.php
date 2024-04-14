@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
             $table->string('link')->nullable();
-            $table->foreignId('client_id')->constrained();
+            $table->foreignId('client_id')->nullable()->constrained();
+            $table->foreignId('project_id')->nullable()->constrained();
+            $table->string('neighborhood')->nullable();
             $table->timestamps();
         });
     }

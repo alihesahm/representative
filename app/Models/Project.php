@@ -11,17 +11,20 @@ class Project extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'latitude',
-        'longitude',
         'type',
         'contractor',
         'phase',
         'status',
-        'neighborhood',
     ];
 
     public function visits():HasMany
     {
         return $this->hasMany(Visit::class);
+    }
+
+
+    public function locations():HasMany
+    {
+        return $this->hasMany(Location::class);
     }
 }

@@ -24,8 +24,6 @@ class LocationSeeder extends Seeder
 
                 $locations[] = [
                     'client_id' => $data[0],
-                    'city' => $data[2],
-                    'address' => $data[3],
                     'link' => $data[4]
                 ];
             }else{

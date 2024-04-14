@@ -22,9 +22,8 @@ class LocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city' => ['required','string'],
-            'address' => ['required','string'],
-            'link' => ['required','string'],
+            'link' => ['required','string', 'max:255'],
+            'neighborhood' => ['required','string','max:255'],
         ];
     }
 }

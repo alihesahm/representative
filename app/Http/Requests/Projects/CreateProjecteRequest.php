@@ -24,14 +24,13 @@ class CreateProjecteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string','max:255'],
-            'latitude' => ['required','numeric','between:-90,90'],
-            'longitude' => ['required','numeric','between:-180,180'],
-            'type' => ['required','string','max:255'],
-            'contractor' => ['required','string','max:255'],
-            'phase' => ['required','string','max:255'],
-            'status' => ['required','string','max:255'],
-            'neighborhood' => ['required','string','max:255'],
+            'project.name' => ['required','string','max:255'],
+            'project.type' => ['required','string','max:255'],
+            'project.contractor' => ['required','string','max:255'],
+            'project.phase' => ['required','string','max:255'],
+            'project.status' => ['required','string','max:255'],
+            'location.link' => ['required','string', 'max:255'],
+            'location.neighborhood' => ['required','string','max:255'],
         ];
     }
 }

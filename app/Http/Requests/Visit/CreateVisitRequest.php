@@ -29,7 +29,10 @@ class CreateVisitRequest extends FormRequest
             'next_action' => ['required','string','max:255'],
             'project_id' => ['required','integer','exists:projects,id'],
             'client_id' => ['required','integer','exists:clients,id'],
-            'location_id' => ['required','integer','exists:locations,id'],
+            'client_location_id' => ['required','integer','exists:locations,id'],
+            'project_location_id' => ['required','integer','exists:locations,id'],
+            'link' => ['required', 'string', 'max:255'],
+            'neighborhood' => ['required', 'string', 'max:255'],
         ];
     }
 }

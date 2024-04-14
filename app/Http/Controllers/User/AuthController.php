@@ -20,4 +20,10 @@ class AuthController extends Controller
         $user->token = $user->createToken('User Token')->plainTextToken;
         return sendSuccessResponse('Login successfully', $user);
     }
+
+    public function logout()
+    {
+        auth()->user()->currentAccessToken()->delete();
+        return sendSuccessResponse();
+    }
 }

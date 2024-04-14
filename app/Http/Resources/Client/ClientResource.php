@@ -15,13 +15,16 @@ class ClientResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+
             'id' => $this->id,
             'name' => $this->name,
             'phone' => $this->phone,
-            'type' => $this->type,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
             'status' => $this->status,
+            'location' => [
+                'id' => $this->location->id,
+                'neighborhood' => $this->location->neighborhood,
+                'link' => $this->location->link,
+            ]
         ];
     }
 }

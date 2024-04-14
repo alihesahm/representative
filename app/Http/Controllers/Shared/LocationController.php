@@ -11,9 +11,11 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    public function index(Client $client):JsonResponse
+    public function index(Client $client,Request $request):JsonResponse
     {
-        $locations = $client->locations;
+        $locations = $client->locations()->when($request->serash, function ($query) use($request){
+            return $query->where('neighborhood','like','%'.$request->searsh.'%');
+        })->get();
         return sendSuccessResponse(data:  LocationResource::collection($locations));
     }
 

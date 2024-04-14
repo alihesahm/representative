@@ -24,13 +24,12 @@ class CreateClientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string','max:255'],
-            'latitude' => ['required','numeric','between:-90,90'],
-            'longitude' => ['required','numeric','between:-180,180'],
-            'type' => ['required','string','max:255'],
-            'phone' => ['required','string','max:255','unique:clients,phone'],
-            'status' => ['required','string','max:255'],
-            'neighborhood' => ['required','string','max:255'],
+            'client.name' => ['required','string','max:255'],
+            'client.type' => ['required','string','max:255'],
+            'client.phone' => ['required','string','max:255','unique:clients,phone'],
+            'client.status' => ['required','string','max:255'],
+            'location.link' => ['required','string', 'max:255'],
+            'location.neighborhood' => ['required','string','max:255'],
         ];
     }
 }
